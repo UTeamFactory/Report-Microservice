@@ -32,7 +32,7 @@ public class CreateReportValidator {
             notification.addError("Description is required");
         }
 
-        if (notification.hasErrors()) {
+        if(notification.hasErrors()) {
             return notification;
         }
         return notification;

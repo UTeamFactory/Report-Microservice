@@ -7,7 +7,7 @@ import java.time.Instant;
 @Value
 public class ReportRegistered {
 
-    private String id;
+    private String reportId;
 
     private String artistId;
 

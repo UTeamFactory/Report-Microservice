@@ -4,7 +4,6 @@ import lombok.Value;
 
 @Value
 public class CreateReportRequest {
-    private String id;
 
     private String artistId;
 

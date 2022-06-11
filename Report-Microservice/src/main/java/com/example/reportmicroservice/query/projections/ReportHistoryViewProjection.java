@@ -19,7 +19,7 @@ public class ReportHistoryViewProjection {
     @EventHandler
     public void on(ReportRegistered event){
         ReportHistoryView reportHistoryView = new ReportHistoryView(
-                event.getId(),
+                event.getReportId(),
                 event.getArtistId(),
                 event.getHobbyistId(),
                 event.getResponse(),

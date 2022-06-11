@@ -21,7 +21,7 @@ public class ReportViewProjection {
     @EventHandler
     public void on(ReportRegistered event){
         ReportView reportView = new ReportView(
-                event.getId(),
+                event.getReportId(),
                 event.getArtistId(),
                 event.getHobbyistId(),
                 event.getResponse(),

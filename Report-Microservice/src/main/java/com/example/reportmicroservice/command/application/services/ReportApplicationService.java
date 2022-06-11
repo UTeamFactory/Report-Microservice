@@ -43,13 +43,12 @@ public class ReportApplicationService {
         }
         String reportId = UUID.randomUUID().toString();
         RegisterReport createReport = new RegisterReport(
-            reportId,
+                reportId,
                 createReportRequest.getArtistId().trim(),
                 createReportRequest.getHobbyistId().trim(),
                 createReportRequest.getResponse().trim(),
                 createReportRequest.getDescription().trim(),
                 createReportRequest.getState()
-
         );
         CompletableFuture<Object> future = commandGateway.send(createReport);
         CompletableFuture<ResultType> futureResult = future.handle((ok, ex) -> (ex != null) ? ResultType.FAILURE : ResultType.SUCCESS);

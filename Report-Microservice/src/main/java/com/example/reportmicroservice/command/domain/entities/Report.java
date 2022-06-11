@@ -65,7 +65,7 @@ public class Report {
 
     @EventSourcingHandler
     protected void on(ReportRegistered event){
-        reportId = event.getId();
+        reportId = event.getReportId();
         artistId = event.getArtistId();
         hobbyistId = event.getHobbyistId();
         response = event.getResponse();

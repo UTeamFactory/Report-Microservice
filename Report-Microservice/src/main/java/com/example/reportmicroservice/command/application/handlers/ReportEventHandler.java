@@ -23,7 +23,7 @@ public class ReportEventHandler {
     @EventHandler
     public void on(ReportRegistered event){
         reportRegistryRepository.save(new ReportRegistry(
-            event.getId(),
+                event.getReportId(),
                 event.getArtistId(),
                 event.getHobbyistId(),
                 event.getResponse(),
@@ -46,4 +46,4 @@ public class ReportEventHandler {
         ));
     }
 
-    }
+}
