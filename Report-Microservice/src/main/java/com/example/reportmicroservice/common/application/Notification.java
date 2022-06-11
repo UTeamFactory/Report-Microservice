@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Notification {
 
-    private List<java.lang.Error> errors = new ArrayList<>();
+    private List<Error> errors = new ArrayList<>();
     private final String SEPARATOR = "||";
 
     public void addError(String message) {
@@ -14,10 +14,10 @@ public class Notification {
     }
 
     public void addError(String message, Exception cause) {
-        errors.add(new java.lang.Error(message, cause));
+        errors.add(new Error(message, cause));
     }
 
-    public List<java.lang.Error> getErrors() {
+    public List<Error> getErrors() {
         return errors;
     }
 

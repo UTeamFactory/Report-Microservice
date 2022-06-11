@@ -7,7 +7,7 @@ import org.axonframework.modelling.command.TargetAggregateIdentifier;
 public class RegisterReport {
 
     @TargetAggregateIdentifier
-    private String id;
+    private String reportId;
 
     private String artistId;
 
@@ -19,8 +19,8 @@ public class RegisterReport {
 
     private Boolean state;
 
-    public String getId() {
-        return id;
+    public String getReportId() {
+        return reportId;
     }
 
     public String getArtistId() {
@@ -43,8 +43,8 @@ public class RegisterReport {
         return state;
     }
 
-    public RegisterReport(String id, String artistId, String hobbyistId, String response, String description, Boolean state) {
-        this.id = id;
+    public RegisterReport(String reportId, String artistId, String hobbyistId, String response, String description, Boolean state) {
+        this.reportId = reportId;
         this.artistId = artistId;
         this.hobbyistId = hobbyistId;
         this.response = response;

@@ -1,5 +1,6 @@
 package com.example.reportmicroservice.common.api;
 
+import com.example.reportmicroservice.common.application.Error;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

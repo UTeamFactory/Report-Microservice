@@ -52,10 +52,11 @@ public class ReportQueryController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @GetMapping("/history/{id}")
+    @Operation(summary = "Get report history")
     public ResponseEntity<List<ReportHistoryView>> getHistoryById(@PathVariable("id") String id) {
         try {
-            List<ReportHistoryView> reports = reportHistoryViewRepository.getReportHistoryById(id);
+            List<ReportHistoryView> reports = reportHistoryViewRepository.getHistoryByReportId(id);
             return new ResponseEntity<List<ReportHistoryView>>(reports, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

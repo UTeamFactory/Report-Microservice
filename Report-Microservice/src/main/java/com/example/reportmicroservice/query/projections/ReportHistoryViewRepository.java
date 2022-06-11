@@ -13,11 +13,11 @@ public interface ReportHistoryViewRepository extends JpaRepository<ReportHistory
             "       FROM report_history_view" +
             "       WHERE report_history_id" +
             "           =(SELECT MAX(report_history_id)" +
-            "               FROM report_history_id WHERE report_id = :report_id)",nativeQuery = true)
-    Optional<ReportHistoryView> getLastById(String id);
+            "               FROM report_history_view WHERE report_id = :reportId)",nativeQuery = true)
+    Optional<ReportHistoryView> getLastByReportId(String reportId);
 
     @Query(value = "SELECT * FROM report_history_view WHERE report_id = :reportId ORDER BY created_at", nativeQuery = true)
-    List<ReportHistoryView> getReportHistoryById(String id);
+    List<ReportHistoryView> getHistoryByReportId(String reportId);
 
 
 }

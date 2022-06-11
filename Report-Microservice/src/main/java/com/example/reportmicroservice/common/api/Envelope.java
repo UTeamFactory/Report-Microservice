@@ -1,5 +1,6 @@
 package com.example.reportmicroservice.common.api;
 
+import com.example.reportmicroservice.common.application.Error;
 import lombok.Value;
 
 import java.util.ArrayList;

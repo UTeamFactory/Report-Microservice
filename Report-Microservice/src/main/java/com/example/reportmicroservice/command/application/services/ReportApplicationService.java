@@ -58,7 +58,7 @@ public class ReportApplicationService {
             throw new Exception();
         }
         CreateReportResponse createReportResponseDto = new CreateReportResponse(
-            createReport.getId(),
+            createReport.getReportId(),
             createReport.getArtistId(),
             createReport.getHobbyistId(),
             createReport.getResponse(),
@@ -88,7 +88,7 @@ public class ReportApplicationService {
             throw new Exception();
         }
         EditReportResponse editReportResponse = new EditReportResponse(
-            editReport.getId(),
+            editReport.getReportId(),
             editReport.getArtistId(),
             editReport.getHobbyistId(),
             editReport.getResponse(),

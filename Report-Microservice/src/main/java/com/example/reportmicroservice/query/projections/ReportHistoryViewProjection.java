@@ -32,7 +32,7 @@ public class ReportHistoryViewProjection {
 
     @EventHandler
     public void on(ReportEdited event){
-        Optional<ReportHistoryView> reportHistoryViewOptional = reportHistoryViewRepository.getLastById(event.getId().toString());
+        Optional<ReportHistoryView> reportHistoryViewOptional = reportHistoryViewRepository.getLastByReportId(event.getId().toString());
         if(reportHistoryViewOptional.isPresent()) {
             ReportHistoryView reportHistoryView = reportHistoryViewOptional.get();
             reportHistoryView = new ReportHistoryView(reportHistoryView);

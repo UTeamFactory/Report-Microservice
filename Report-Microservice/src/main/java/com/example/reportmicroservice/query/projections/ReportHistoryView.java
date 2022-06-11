@@ -19,7 +19,7 @@ public class ReportHistoryView {
     private  Long reportHistoryId;
 
     @Column(length = 36) @Getter @Setter
-    private String id;
+    private String reportId;
 
     @Column(length = 36) @Getter @Setter
     private String artistId;
@@ -41,8 +41,8 @@ public class ReportHistoryView {
 
     public ReportHistoryView(){}
 
-    public ReportHistoryView(String id, String artistId, String hobbyistId, String response, String description, Boolean state, Instant createdAt) {
-        this.id = id;
+    public ReportHistoryView(String reportId, String artistId, String hobbyistId, String response, String description, Boolean state, Instant createdAt) {
+        this.reportId = reportId;
         this.artistId = artistId;
         this.hobbyistId = hobbyistId;
         this.response = response;
@@ -52,7 +52,7 @@ public class ReportHistoryView {
     }
 
     public ReportHistoryView(ReportHistoryView reportHistoryView) {
-        this.id = reportHistoryView.getId();
+        this.reportId = reportHistoryView.getReportId();
         this.artistId = reportHistoryView.getArtistId();
         this.hobbyistId = reportHistoryView.getHobbyistId();
         this.response = reportHistoryView.getResponse();

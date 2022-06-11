@@ -9,7 +9,7 @@ public class ReportRegistry {
 
     @Id
     @Column
-    private String id;
+    private String reportId;
 
     private String artistId;
 
@@ -23,8 +23,8 @@ public class ReportRegistry {
 
     public ReportRegistry(){}
 
-    public ReportRegistry(String id, String artistId, String hobbyistId, String response, String description, Boolean state) {
-        this.id = id;
+    public ReportRegistry(String reportId, String artistId, String hobbyistId, String response, String description, Boolean state) {
+        this.reportId = reportId;
         this.artistId = artistId;
         this.hobbyistId = hobbyistId;
         this.response = response;
@@ -32,12 +32,12 @@ public class ReportRegistry {
         this.state = state;
     }
 
-    public String getId() {
-        return id;
+    public String getReportId() {
+        return reportId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setReportId(String reportId) {
+        this.reportId = reportId;
     }
 
     public String getArtistId() {

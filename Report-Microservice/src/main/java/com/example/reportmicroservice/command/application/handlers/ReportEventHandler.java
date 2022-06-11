@@ -1,4 +1,4 @@
-package com.example.reportmicroservice.command.application.handlres;
+package com.example.reportmicroservice.command.application.handlers;
 
 import com.example.reportmicroservice.command.infrastructure.ReportRegistry;
 import com.example.reportmicroservice.command.infrastructure.ReportRegistryRepository;
