@@ -2,6 +2,9 @@ package com.example.reportmicroservice.command.domain.entities;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
+import com.example.reportmicroservice.command.domain.values.Description;
+import com.example.reportmicroservice.command.domain.values.Response;
+import com.example.reportmicroservice.command.domain.values.State;
 import com.example.reportmicroservice.contracts.commands.EditReport;
 import com.example.reportmicroservice.contracts.commands.RegisterReport;
 import com.example.reportmicroservice.contracts.events.ReportEdited;
@@ -11,6 +14,10 @@ import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
 import org.axonframework.spring.stereotype.Aggregate;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import java.time.Instant;
 
 @Aggregate
@@ -23,11 +30,23 @@ public class Report {
 
     private String artistId;
 
-    private String description;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "description", length = 200, nullable = false))
+    })
+    private Description description;
 
-    private String response;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "response", length = 100, nullable = false))
+    })
+    private Response response;
 
-    private Boolean state;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "state", nullable = false))
+    })
+    private State state;
 
     public Report(){}
 
@@ -68,18 +87,18 @@ public class Report {
         reportId = event.getReportId();
         artistId = event.getArtistId();
         hobbyistId = event.getHobbyistId();
-        response = event.getResponse();
-        description = event.getDescription();
-        state = event.getState();
+        response = new Response(event.getResponse());
+        description = new Description(event.getDescription());
+        state = new State(event.getState());
     }
 
     @EventSourcingHandler
     protected void on(ReportEdited event){
         artistId = event.getArtistId();
         hobbyistId = event.getHobbyistId();
-        response = event.getResponse();
-        description = event.getDescription();
-        state = event.getState();
+        response = new Response(event.getResponse());
+        description = new Description(event.getDescription());
+        state = new State(event.getState());
     }
 
 }
