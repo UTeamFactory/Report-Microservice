@@ -2,9 +2,7 @@ package com.example.reportmicroservice.command.domain.entities;
 
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
-import com.example.reportmicroservice.command.domain.values.Description;
-import com.example.reportmicroservice.command.domain.values.Response;
-import com.example.reportmicroservice.command.domain.values.State;
+import com.example.reportmicroservice.command.domain.values.*;
 import com.example.reportmicroservice.contracts.commands.EditReport;
 import com.example.reportmicroservice.contracts.commands.RegisterReport;
 import com.example.reportmicroservice.contracts.events.ReportEdited;
@@ -26,9 +24,17 @@ public class Report {
     @AggregateIdentifier
     private String reportId;
 
-    private String hobbyistId;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "hobbyist_id", nullable = false))
+    })
+    private HobbyistId hobbyistId;
 
-    private String artistId;
+    @Embedded
+    @AttributeOverrides({
+            @AttributeOverride(name = "value", column = @Column(name = "artist_id", nullable = false))
+    })
+    private ArtistId artistId;
 
     @Embedded
     @AttributeOverrides({
@@ -85,8 +91,8 @@ public class Report {
     @EventSourcingHandler
     protected void on(ReportRegistered event){
         reportId = event.getReportId();
-        artistId = event.getArtistId();
-        hobbyistId = event.getHobbyistId();
+        artistId = new ArtistId(event.getArtistId());
+        hobbyistId = new HobbyistId(event.getHobbyistId());
         response = new Response(event.getResponse());
         description = new Description(event.getDescription());
         state = new State(event.getState());
@@ -94,8 +100,8 @@ public class Report {
 
     @EventSourcingHandler
     protected void on(ReportEdited event){
-        artistId = event.getArtistId();
-        hobbyistId = event.getHobbyistId();
+        artistId = new ArtistId(event.getArtistId());
+        hobbyistId = new HobbyistId(event.getHobbyistId());
         response = new Response(event.getResponse());
         description = new Description(event.getDescription());
         state = new State(event.getState());
