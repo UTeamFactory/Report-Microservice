@@ -1,7 +1,7 @@
 package com.perustars.reportmicroservice.query.projections;
 
-import com.perustars.reportmicroservice.contracts.events.ReportEdited;
-import com.perustars.reportmicroservice.contracts.events.ReportRegistered;
+import com.perustars.reportcontracts.events.ReportEdited;
+import com.perustars.reportcontracts.events.ReportRegistered;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.stereotype.Component;
 

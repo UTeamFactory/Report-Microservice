@@ -1,13 +1,10 @@
 package com.perustars.reportmicroservice.command.application.handlers;
 
-import com.perustars.reportmicroservice.command.infrastructure.ReportRegistry;
-import com.perustars.reportmicroservice.command.infrastructure.ReportRegistryRepository;
-import com.perustars.reportmicroservice.contracts.events.ReportEdited;
-import com.perustars.reportmicroservice.contracts.events.ReportRegistered;
 import org.axonframework.config.ProcessingGroup;
 import org.axonframework.eventhandling.EventHandler;
 import org.springframework.stereotype.Component;
-
+import com.perustars.reportmicroservice.command.infrastructure.*;
+import com.perustars.reportcontracts.events.*;
 import java.util.Optional;
 
 @Component

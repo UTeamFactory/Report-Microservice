@@ -10,8 +10,8 @@ import com.perustars.reportmicroservice.command.infrastructure.ReportRegistryRep
 import com.perustars.common.application.Notification;
 import com.perustars.common.application.Result;
 import com.perustars.common.application.ResultType;
-import com.perustars.reportmicroservice.contracts.commands.EditReport;
-import com.perustars.reportmicroservice.contracts.commands.RegisterReport;
+import com.perustars.reportcontracts.commands.EditReport;
+import com.perustars.reportcontracts.commands.RegisterReport;
 import org.axonframework.commandhandling.gateway.CommandGateway;
 import org.springframework.stereotype.Component;
 

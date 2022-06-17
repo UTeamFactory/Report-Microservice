@@ -3,10 +3,10 @@ package com.perustars.reportmicroservice.command.domain.entities;
 import static org.axonframework.modelling.command.AggregateLifecycle.apply;
 
 import com.perustars.reportmicroservice.command.domain.values.*;
-import com.perustars.reportmicroservice.contracts.commands.EditReport;
-import com.perustars.reportmicroservice.contracts.commands.RegisterReport;
-import com.perustars.reportmicroservice.contracts.events.ReportEdited;
-import com.perustars.reportmicroservice.contracts.events.ReportRegistered;
+import com.perustars.reportcontracts.commands.EditReport;
+import com.perustars.reportcontracts.commands.RegisterReport;
+import com.perustars.reportcontracts.events.ReportEdited;
+import com.perustars.reportcontracts.events.ReportRegistered;
 import org.axonframework.commandhandling.CommandHandler;
 import org.axonframework.eventsourcing.EventSourcingHandler;
 import org.axonframework.modelling.command.AggregateIdentifier;
